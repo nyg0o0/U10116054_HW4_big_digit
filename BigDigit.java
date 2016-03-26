@@ -2,14 +2,11 @@ import java.util.*;
 
 class BigDigit{
 	private int intPartNum = 0, decimalPartNum = 0;
-	private int[] intPart,decimalPart;	
+	private int[] intPart,decimalPart;
+	
 	BigDigit(){
-		
-		
 	}
 	
-
-
 	public void checkIsNumber(String newStr){
 		// Check for inputStr is a number or not
 		try{ 
@@ -30,6 +27,23 @@ class BigDigit{
 		for(int j = 0; j < intPartNum ; j++){
 			intPart[intPartNum-j-1] = Character.getNumericValue(newStr.charAt(j));
 		}	
+	}
+
+	public void storeDecimalNum(String newStr){
+		// Record the number of digits (before and after decimal point)
+		intPartNum = newStr.indexOf('.');
+		decimalPartNum = newStr.length() - intPartNum - 1;  // string length - interger part - decimal point
+		intPart = new int[intPartNum];
+		decimalPart = new int[decimalPartNum];
+		
+		// Store the intPart into the array	
+		for(int i = 0; i < intPartNum ; i++){
+			intPart[intPartNum-i-1] = Character.getNumericValue(newStr.charAt(i));
+		}
+		// Store the deciamlPart into the array	
+		for(int j = 0; j < decimalPartNum ; j++){
+			decimalPart[j] = Character.getNumericValue(newStr.charAt( ( newStr.indexOf('.') + 1 ) + j));
+		}
 	}
 }
 
