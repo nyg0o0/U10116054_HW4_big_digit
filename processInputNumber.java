@@ -1,10 +1,10 @@
 import java.util.*;
 
-class processInputNumber{
+class ProcessInputNumber{
 	public int intPartNum = 0, decimalPartNum = 0;
 	public int[] intPart,decimalPart;
 	
-	processInputNumber(){
+	ProcessInputNumber(){
 	}
 	
 	public void checkIsNumber(String str){
