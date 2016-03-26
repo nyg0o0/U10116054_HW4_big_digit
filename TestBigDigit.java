@@ -10,17 +10,18 @@ public class TestBigDigit {
 
     // Check for inputStr is a number or not
     try{ 
-      System.out.print(Double.parseDouble(str));
+      System.out.print(Double.parseDouble(inputStr));
     }
     catch (NumberFormatException e){ 
       System.out.println("This is not a digit);
     }
    
     // Record the number of digits (before and after decimal point)
-    int intPart = inputStr.indexOf('.');
-    int decimalPart = inputStr.length() - intPart - 1;  // string length - interger part - decimal point
-    System.out.print(intPart + " " + decimalPart); 
+    int intPartNum = inputStr.indexOf('.');
+    int decimalPartNum = inputStr.length() - intPartNum - 1;  // string length - interger part - decimal point
+    System.out.print(intPartNum + " " + decimalPartNum); 
 
     // Store the number into the array
+    double[] intPart = new double[10];
   }
 }
