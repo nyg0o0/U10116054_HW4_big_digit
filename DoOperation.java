@@ -56,12 +56,12 @@ class DoOperation{
 		int carryForDec = 0;	// A variable for storing the carry of decimal part
 		int carryFromDecToInt = 0;	// A variable for storing the carry from decimal part to interger part
 		int temp = 0;	// A temp variable
-		for(int j = result_DecPartNum-1; j >= 0 ; j--){	// Decimal part addition, form the tail to the head (reverse)
-			temp = num1_DecPart.get(j) + num2_DecPart.get(j) + carryForDec;	// num1 plus num2 plus the carry for decimal part
+		for(int i = result_DecPartNum-1; i >= 0 ; i--){	// Decimal part addition, form the tail to the head (reverse)
+			temp = num1_DecPart.get(i) + num2_DecPart.get(i) + carryForDec;	// num1 plus num2 plus the carry for decimal part
 			if( temp > 9 ){	// If temp is bigger then nine
 				result_DecPart.add( temp - 10 );
 				carryForDec = 1;	// set the carry
-				if(j == 0){	// If it is the first of the decimal (It has carry for decimal part too)
+				if(i == 0){	// If it is the first of the decimal (It has carry for decimal part too)
 					carryFromDecToInt = 1;	// set the carry to interger part
 				}
 			}
@@ -70,8 +70,8 @@ class DoOperation{
 				carryForDec = 0;	// clear the carry
 			}
 		}
-		for(int i = 0 ; i < result_IntPartNum ; i++){	// Interger part addition, form the head to the tail
-			temp = num1_IntPart.get(i) + num2_IntPart.get(i) + carryFromDecToInt + carryForInt;
+		for(int j = 0 ; j < result_IntPartNum ; j++){	// Interger part addition, form the head to the tail
+			temp = num1_IntPart.get(j) + num2_IntPart.get(j) + carryFromDecToInt + carryForInt;
 				if( temp > 9 ){
 					result_IntPart.add( temp - 10 );
 					carryForInt = 1;	// set the carry
