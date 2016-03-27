@@ -42,30 +42,30 @@ public class TestBigDigit {
 		ArrayList<Integer> Res_DecPart = new ArrayList<>();
 		//ArrayList<Object> operation = new ArrayList<>();
 		DoOperation[] operation = new DoOperation[numOfOperation];
-		int times = 0;
 		/* Repeat addtion by how many digit there */
+		
 		for(int i = 0 ; i < numOfOperation-1 ; i++ ){	// four numbers only need  three times (minus one)
 			if(i == 0){ 
 				operation[i] = new DoOperation(num[i].getIntPart(),num[i].getDecPart(),num[i+1].getIntPart(),num[i+1].getDecPart());
 				operation[i].doAddition();	// Addition by the method of the class DoOperation
+				System.out.println();
 				System.out.println("i: " + i);
-				//for(int k = 0 ; k < (operation[i].getResult_IntPartNum())-1 ; k++ ){
-					//for(int j = (operation[i]).getResult_IntPartNum()-1 ; j >= 0  ; j--){	// Reverse the order (Opposite to each other)
-					System.out.println((operation[i].getResult_IntPart()).get(0));	// Do interger part addition by the method of the class DoOperation
-				//}
+				Res_IntPart = operation[i].getResult_IntPart();
+				for(int k = ((operation[i]).getResult_IntPartNum()-1) ; k >=0 ; k-- ){
+					System.out.print((operation[i].getResult_IntPart()).get(k));	// Do interger part addition by the method of the class DoOperation
+				}
+				System.out.println();
 			}
 			else{
-				//System.out.println((num[i-1].getIntPart()).get(0) + "/" +(num[i-1].getDecPart()).get(0));
 				operation[i] = new DoOperation(num[i+1].getIntPart(),num[i+1].getDecPart(),Res_IntPart, Res_DecPart);
 				operation[i].doAddition();	// Addition by the method of the class DoOperation
+				System.out.println();
 				System.out.println("i: " + i);
-				//for(int k = 0 ; k < (operation[i].getResult_IntPartNum())-1 ; k++ ){
-					//for(int j = (operation[i]).getResult_IntPartNum()-1 ; j >= 0  ; j--){	// Reverse the order (Opposite to each other)
-					System.out.println((operation[i].getResult_IntPart()).get(0));	// Do interger part addition by the method of the class DoOperation
-				//}
-			}
-			for(int j = (operation[i].getResult_IntPartNum())-1 ; j >= 0  ; j--){	// Reverse the order (Opposite to each other)
-				Res_IntPart.add(operation[i].getResult_IntPart().get(j) );	// Do interger part addition by the method of the class DoOperation
+				Res_IntPart = operation[i].getResult_IntPart();
+				for(int k = ((operation[i]).getResult_IntPartNum()-1) ; k >=0 ; k-- ){
+					System.out.print(Res_IntPart.get(k));	// Do interger part addition by the method of the class DoOperation
+				}
+				System.out.println();
 			}
 		}
 		
