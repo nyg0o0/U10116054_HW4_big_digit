@@ -41,22 +41,20 @@ public class TestBigDigit {
 			}
 		}
 		
-		//System.out.print(num[0].getIntSize());
+		
 
      
 		DoOperation operation1 = new DoOperation(num[0].getIntPart(),num[0].getDecimalPart(),num[1].getIntPart(),num[1].getDecimalPart());
 		operation1.doAddition();
-		//System.out.println(operation1.getResult_IntPartNum());
-		//for(int j = 0 ; j < operation1.getResult_IntPartNum() ; j++){
-			//operation1.getResult_IntPart();
-			//System.out.println(operation1.getResult_IntPartValue(j));
-			//System.out.println((operation1.getResult_IntPart()).get(j));
-		//}
-		
-			
-			//for(int j = 0 ; j < operation1.getResult_IntPartNum() ; j++){
-			//	System.out.println(operation1.result_IntPart[j]);
-			//}
-	 	
+		System.out.print("Answer: ");
+		for(int j = operation1.getResult_IntPartNum()-1 ; j >= 0  ; j--){
+			System.out.print( (operation1.getResult_IntPart()).get(j) );
+		}
+		if(operation1.getResult_DecimalPartNum() != 0){
+			System.out.print(".");
+		}
+		 for(int j = operation1.getResult_DecimalPartNum()-1 ; j >= 0 ; j--){
+			System.out.print( (operation1.getResult_DecimalPart()).get(j) );
+		}
 	}
 }

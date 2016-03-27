@@ -16,7 +16,6 @@ class DoOperation{
 	private int num2_IntPartNum,num2_DecimalPartNum;
 	private int result_IntPartNum, result_DecimalPartNum;
 	
-	
 	DoOperation(){
 
 	}
@@ -26,11 +25,6 @@ class DoOperation{
 		num1_DecimalPart = newNum1_DecimalPart;
 		num2_IntPart = newNum2_IntPart;
 		num2_DecimalPart = newNum2_DecimalPart;
-		
-		//num1_IntPartNum = newNum1_IntPart.size();
-		//num1_DecimalPartNum = newNum1_DecimalPart.size();
-		//num2_IntPartNum = newNum2_IntPart.size();
-		//num2_DecimalPartNum = newNum2_DecimalPart.size();
 		
 		while(num1_IntPart.size() != num2_IntPart.size()){
 			if(num1_IntPart.size() > num2_IntPart.size()){
@@ -50,18 +44,45 @@ class DoOperation{
 		}
 		result_IntPartNum = num1_IntPart.size();
 		result_DecimalPartNum = num1_DecimalPart.size();
-
-		
 	}
 	
 	void doAddition(){
+		int carryForInt = 0;
+		int carryForDec = 0;
+		int carryFromDecToInt = 0;
+		int temp = 0;
+		for(int j = result_DecimalPartNum-1; j >= 0 ; j--){
+			temp = num1_DecimalPart.get(j) + num2_DecimalPart.get(j) + carryForDec;
+			if( temp > 9 ){
+				result_DecimalPart.add( temp - 10 );
+				carryForDec = 1;
+				if(j == 0){
+					carryFromDecToInt = 1;
+				}
+			}
+			else{
+				result_DecimalPart.add( temp );
+				carryForDec = 0;
+			}
+		}
 		for(int i = 0 ; i < result_IntPartNum ; i++){
-			result_IntPart.add( num1_IntPart.get(i) + num2_IntPart.get(i) );
+			temp = num1_IntPart.get(i) + num2_IntPart.get(i) + carryFromDecToInt + carryForInt;
+				if( temp > 9 ){
+					result_IntPart.add( temp - 10 );
+					carryForInt = 1;
+					carryFromDecToInt = 0;
+				}
+				else{
+					result_IntPart.add( temp );
+					carryForInt = 0;
+					carryFromDecToInt = 0;
+				}
 		}
-		for(int j = 0 ; j < result_DecimalPartNum ; j++){
-			result_DecimalPart.add( num1_DecimalPart.get(j) + num2_DecimalPart.get(j) );
+		if(carryForInt == 1){
+			result_IntPart.add(1);
+			result_IntPartNum++;
 		}
-		
+		/*
 		for(int i = 0 ; i < result_IntPartNum ;i++){
 			System.out.print(result_IntPart.get(i));
 		}
@@ -70,36 +91,22 @@ class DoOperation{
 		for(int i = 0 ; i < result_DecimalPartNum ;i++){
 			System.out.print(result_DecimalPart.get(i));
 		}
-		
+		*/
 	}
-	/*
-	int getResult_IntPartNum(){
-		if(num1_IntPartNum >= num2_IntPartNum){
-			result_IntPartNum = num1_IntPartNum;
-		}
-		else{
-			result_IntPartNum = num2_IntPartNum;
-		}	
-		return result_IntPartNum;
-	}
-	
-	int getResult_DecimalPartNum(){
-		if(num1_DecimalPartNum >= num2_DecimalPartNum){
-			result_DecimalPartNum = num1_DecimalPartNum;
-		}
-		else{
-			result_DecimalPartNum = num2_DecimalPartNum;
-		}
-		return result_DecimalPartNum;	
-	}
-	*/
+
 	public ArrayList<Integer> getResult_IntPart(){
 		return result_IntPart;
 	}
 	public ArrayList<Integer> getResult_DecimalPart(){
 		return result_DecimalPart;
 	}	 
+	int getResult_IntPartNum(){
+		return result_IntPartNum;
+	}
 	
+	int getResult_DecimalPartNum(){
+		return result_DecimalPartNum;
+	}		
 	int getResult_IntPartValue(int x){
 		return result_IntPart.get(x);
 	}
