@@ -57,7 +57,7 @@ class DoOperation{
 		return result_IntPartNum;
 	}
 	
-	int getResult_IntDecimalPartNum(){
+	int getResult_DecimalPartNum(){
 		if(num1_DecimalPartNum >= num2_DecimalPartNum){
 			result_DecimalPartNum = num1_DecimalPartNum;
 		}

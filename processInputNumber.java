@@ -34,14 +34,14 @@ class ProcessInputNumber{
 		// Record the number of digits (before and after decimal point)
 		intPartNum = newStr.indexOf('.');
 		decimalPartNum = newStr.length() - intPartNum - 1;  // string length - interger part - decimal point
-		
+		//System.out.println(intPartNum + " " +decimalPartNum);
 		// Store the intPart into the array	
 		for(int i = (intPartNum-1) ; i >= 0 ; i--){
 			intPart.add(Character.getNumericValue(newStr.charAt(i)));
 		}
 		// Store the deciamlPart into the array	
 		for(int j = 0; j < decimalPartNum ; j++){
-			intPart.add(Character.getNumericValue(newStr.charAt( ( newStr.indexOf('.') + 1 ) + j)));
+			decimalPart.add(Character.getNumericValue(newStr.charAt( ( newStr.indexOf('.') + 1 ) + j)));
 		}
 	}
 	
@@ -63,9 +63,16 @@ class ProcessInputNumber{
 	public int getIntSize(){
 		return intPart.size();
 	}
-	
+	public int getDecimalSize(){
+		return decimalPart.size();
+	}	
 	public int getIntPartValue(int x){
 		return intPart.get(x);
 	}
+	
+	public int getDecimalPartValue(int x){
+		return decimalPart.get(x);
+	}
+
 }
 
