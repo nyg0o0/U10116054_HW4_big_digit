@@ -56,10 +56,11 @@ public class TestBigDigit {
 		DoOperation operation1 = new DoOperation(num[0].getIntPart(),num[0].getDecimalPart(),num[1].getIntPart(),num[1].getDecimalPart());
 		operation1.doAddition();
 		//System.out.println(operation1.getResult_IntPartNum());
-		for(int j = 0 ; j < operation1.getResult_IntPartNum() ; j++){
+		//for(int j = 0 ; j < operation1.getResult_IntPartNum() ; j++){
 			//operation1.getResult_IntPart();
-			System.out.println((operation1.getResult_IntPart()).get(j));
-		}
+			//System.out.println(operation1.getResult_IntPartValue(j));
+			//System.out.println((operation1.getResult_IntPart()).get(j));
+		//}
 		
 			
 			//for(int j = 0 ; j < operation1.getResult_IntPartNum() ; j++){

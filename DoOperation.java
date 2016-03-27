@@ -27,10 +27,30 @@ class DoOperation{
 		num2_IntPart = newNum2_IntPart;
 		num2_DecimalPart = newNum2_DecimalPart;
 		
-		num1_IntPartNum = newNum1_IntPart.size();
-		num1_DecimalPartNum = newNum1_DecimalPart.size();
-		num2_IntPartNum = newNum2_IntPart.size();
-		num2_DecimalPartNum = newNum2_DecimalPart.size();
+		//num1_IntPartNum = newNum1_IntPart.size();
+		//num1_DecimalPartNum = newNum1_DecimalPart.size();
+		//num2_IntPartNum = newNum2_IntPart.size();
+		//num2_DecimalPartNum = newNum2_DecimalPart.size();
+		
+		while(num1_IntPart.size() != num2_IntPart.size()){
+			if(num1_IntPart.size() >= num2_IntPart.size()){
+				num2_IntPart.add(0);
+			}
+			else{
+				num1_IntPart.add(0);
+			}
+			
+		}
+		result_IntPartNum = num1_IntPart.size();
+		System.out.println(result_IntPartNum);
+
+		
+		if(num1_DecimalPartNum >= num2_DecimalPartNum){
+			result_DecimalPartNum = num1_DecimalPartNum;
+		}
+		else{
+			result_DecimalPartNum = num2_DecimalPartNum;
+		}
 		
 	}
 	
@@ -38,11 +58,19 @@ class DoOperation{
 		for(int i = 0 ; i < result_IntPartNum ; i++){
 			result_IntPart.add( num1_IntPart.get(i) + num2_IntPart.get(i) );
 		}
-		for(int j = 0 ; j < result_DecimalPartNum ; j++){
+		for(int j = 0 ; j < result_DecimalPartNum-1 ; j++){
 			result_DecimalPart.add( num1_DecimalPart.get(j) + num2_DecimalPart.get(j) );
 		}
+		
+		for(int i = 0 ; i < (result_IntPartNum-2) ;i++){
+			System.out.print(result_IntPart.get(i));
+		}
+		System.out.println("");
+		for(int i = 0 ; i < (result_DecimalPartNum-1) ;i++){
+			System.out.print(result_DecimalPart.get(i));
+		}
 	}
-	
+	/*
 	int getResult_IntPartNum(){
 		if(num1_IntPartNum >= num2_IntPartNum){
 			result_IntPartNum = num1_IntPartNum;
@@ -62,7 +90,7 @@ class DoOperation{
 		}
 		return result_DecimalPartNum;	
 	}
-	
+	*/
 	public ArrayList<Integer> getResult_IntPart(){
 		return result_IntPart;
 	}
