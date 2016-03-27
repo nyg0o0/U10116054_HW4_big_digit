@@ -29,18 +29,14 @@ class DoOperation{
 		
 		num1_IntPartNum = newNum1_IntPart.size();
 		num1_DecimalPartNum = newNum1_DecimalPart.size();
-		
 		num2_IntPartNum = newNum2_IntPart.size();
 		num2_DecimalPartNum = newNum2_DecimalPart.size();
 		
 	}
 	
 	void doAddition(){
-		//result_IntPart = new int[result_IntPartNum];
-	    //result_DecimalPart = new int[result_DecimalPartNum];
 		for(int i = 0 ; i < result_IntPartNum ; i++){
 			result_IntPart.add( num1_IntPart.get(i) + num2_IntPart.get(i) );
-			System.out.println();
 		}
 		for(int j = 0 ; j < result_DecimalPartNum ; j++){
 			result_DecimalPart.add( num1_DecimalPart.get(j) + num2_DecimalPart.get(j) );
@@ -67,11 +63,19 @@ class DoOperation{
 		return result_DecimalPartNum;	
 	}
 	
+	public ArrayList<Integer> getResult_IntPart(){
+		return result_IntPart;
+	}
+	public ArrayList<Integer> getResult_DecimalPart(){
+		return result_DecimalPart;
+	}	 
+	
 	int getResult_IntPartValue(int x){
 		return result_IntPart.get(x);
 	}
- 	int getResult_DecimalPartValue(int x){
+	
+	int getResult_DecimalPartValue(int x){
 		return result_DecimalPart.get(x);
-	}   
+	}	
 
 }

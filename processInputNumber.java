@@ -1,7 +1,7 @@
 import java.util.*;
 
 class ProcessInputNumber{
-	public int intPartNum = 0, decimalPartNum = 0;
+	private int intPartNum = 0, decimalPartNum = 0;
 	private ArrayList<Integer> intPart = new ArrayList<>();
 	private ArrayList<Integer> decimalPart = new ArrayList<>();
 	
@@ -27,7 +27,6 @@ class ProcessInputNumber{
 		for(int i = (intPartNum-1) ; i >= 0 ; i--){
 			intPart.add(Character.getNumericValue(newStr.charAt(i)));	
 		}	
-		System.out.println(intPart.size());
 	}
 
 	public void storeDecimalNum(String newStr){
@@ -52,25 +51,25 @@ class ProcessInputNumber{
 	int getDecimalPartNum(){
 		return decimalPartNum;
 	}
-	/*
+	
 	public ArrayList<Integer> getIntPart(){
 		return intPart;
 	}
 	public ArrayList<Integer> getDecimalPart(){
 		return decimalPart;
 	}	
-	*/
-	public int getIntSize(){
+	
+	int getIntSize(){
 		return intPart.size();
 	}
-	public int getDecimalSize(){
+	int getDecimalSize(){
 		return decimalPart.size();
 	}	
-	public int getIntPartValue(int x){
+	int getIntPartValue(int x){
 		return intPart.get(x);
 	}
 	
-	public int getDecimalPartValue(int x){
+	int getDecimalPartValue(int x){
 		return decimalPart.get(x);
 	}
 
