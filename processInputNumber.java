@@ -52,12 +52,14 @@ class ProcessInputNumber{
 	int getDecimalPartNum(){
 		return decimalPartNum;
 	}
+	/*
 	public ArrayList<Integer> getIntPart(){
 		return intPart;
 	}
 	public ArrayList<Integer> getDecimalPart(){
 		return decimalPart;
 	}	
+	*/
 	public int getIntSize(){
 		return intPart.size();
 	}

@@ -39,12 +39,13 @@ public class TestBigDigit {
 			else{	// If it is not a interger
 				num[i].storeDecimalNum(inputStr[i]);
 			}
+			for(int j = 0 ; j < num[i].getIntSize() ; j++){
+				System.out.println("num[i].getIntPartValue(j)" + num[i].getIntPartValue(j));
+			}
 		}
 		
 		//System.out.print(num[0].getIntSize());
-		//for(int j = 0 ; j < num[0].getIntSize() ; j++){
-		//	System.out.print("num[0].getIntPartValue(j)" + num[0].getIntPartValue(j));
-		//}
+
      /*
 		DoOperation operation1 = new DoOperation(num[0].intPart,num[0].decimalPart,num[1].intPart,num[1].decimalPart);
 
