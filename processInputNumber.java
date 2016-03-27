@@ -2,7 +2,8 @@ import java.util.*;
 
 class ProcessInputNumber{
 	public int intPartNum = 0, decimalPartNum = 0;
-	public int[] intPart,decimalPart;
+	private ArrayList<Integer> intPart = new ArrayList<>();
+	private ArrayList<Integer> decimalPart = new ArrayList<>();
 	
 	ProcessInputNumber(){
 	}
@@ -21,29 +22,48 @@ class ProcessInputNumber{
 	public void storeIntNum(String newStr){
 		// Record the number of digits (before and after decimal point)
 		intPartNum = newStr.length();
-		intPart = new int[intPartNum];
 		
 		// Store the number into the array	
-		for(int j = 0; j < intPartNum ; j++){
-			intPart[intPartNum-j-1] = Character.getNumericValue(newStr.charAt(j));
+		for(int i = (intPartNum-1) ; i >= 0 ; i--){
+			intPart.add(Character.getNumericValue(newStr.charAt(i)));	
 		}	
+		System.out.println(intPart.size());
 	}
 
 	public void storeDecimalNum(String newStr){
 		// Record the number of digits (before and after decimal point)
 		intPartNum = newStr.indexOf('.');
 		decimalPartNum = newStr.length() - intPartNum - 1;  // string length - interger part - decimal point
-		intPart = new int[intPartNum];
-		decimalPart = new int[decimalPartNum];
 		
 		// Store the intPart into the array	
-		for(int i = 0; i < intPartNum ; i++){
-			intPart[intPartNum-i-1] = Character.getNumericValue(newStr.charAt(i));
+		for(int i = (intPartNum-1) ; i >= 0 ; i--){
+			intPart.add(Character.getNumericValue(newStr.charAt(i)));
 		}
 		// Store the deciamlPart into the array	
 		for(int j = 0; j < decimalPartNum ; j++){
-			decimalPart[j] = Character.getNumericValue(newStr.charAt( ( newStr.indexOf('.') + 1 ) + j));
+			intPart.add(Character.getNumericValue(newStr.charAt( ( newStr.indexOf('.') + 1 ) + j)));
 		}
+	}
+	
+	int getIntPartNum(){
+		return intPartNum;
+	}
+	
+	int getDecimalPartNum(){
+		return decimalPartNum;
+	}
+	public ArrayList<Integer> getIntPart(){
+		return intPart;
+	}
+	public ArrayList<Integer> getDecimalPart(){
+		return decimalPart;
+	}	
+	public int getIntSize(){
+		return intPart.size();
+	}
+	
+	public int getIntPartValue(int x){
+		return intPart.get(x);
 	}
 }
 

@@ -1,13 +1,17 @@
 class DoOperation{
-	private int[] num1_IntPart = new int[10];
-	private int[] num1_DecimalPart = new int[10];
-	private int[] num2_IntPart  = new int[10];
-	private int[] num2_DecimalPart = new int[10];
-    private  int num1_IntPartNum,num1_DecimalPartNum;
-	private  int num2_IntPartNum,num2_DecimalPartNum;
-	public  int[] result_IntPart = new int[10];
-	public  int[] result_DecimalPart = new int[10];
-	private  int result_IntPartNum, result_DecimalPartNum;
+	
+	private ArrayList<Int> num1_IntPart = new ArrayList<>();
+	private ArrayList<Int> num1_DecimalPart = new ArrayList<>();
+	
+	private ArrayList<Int> num2_IntPart = new ArrayList<>();
+	private ArrayList<Int> num2_DecimalPart = new ArrayList<>();
+
+	private ArrayList<Int> result_IntPart = new ArrayList<>();
+	private ArrayList<Int> result_DecimalPart = new ArrayList<>();
+	
+    private int num1_IntPartNum,num1_DecimalPartNum;
+	private int num2_IntPartNum,num2_DecimalPartNum;
+	private int result_IntPartNum, result_DecimalPartNum;
 	
 	
 	DoOperation(){
@@ -25,7 +29,7 @@ class DoOperation{
 		//result_IntPart = new int[result_IntPartNum];
 	    //result_DecimalPart = new int[result_DecimalPartNum];
 		for(int i = 0 ; i < result_IntPartNum ; i++){
-			result_IntPart[i] = num1_IntPart[i] + num2_IntPart[i];
+			result_DecimalPart.add(num1_IntPart[i] + num2_IntPart[i]);
 			System.out.println(num1_IntPart[i] + " + " + num2_IntPart[i] + " = " + result_IntPart[i]);
 		}
 		for(int j = 0 ; j < result_DecimalPartNum ; j++){
@@ -34,8 +38,9 @@ class DoOperation{
 	}
 	
 	int getResult_IntPartNum(){
-		num1_IntPartNum = num1_IntPart.length;
-		num2_IntPartNum = num2_IntPart.length;
+		ProcessInputNumber test1 = new ProcessInputNumber();
+		num1_IntPartNum = test1.getIntPartNum();
+
 		if(num1_IntPartNum >= num2_IntPartNum){
 			result_IntPartNum = num1_IntPartNum;
 		}
@@ -45,7 +50,10 @@ class DoOperation{
 		return result_IntPartNum;
 	}
 	
-	int getResult_IntDecimalPart(){
+	int getResult_IntDecimalPartNum(){
+		ProcessInputNumber test2 = new ProcessInputNumber();
+		num2_IntPartNum = test2.getDecimalPartNum();
+		
 		num1_DecimalPartNum = num1_DecimalPart.length;
 		num2_DecimalPartNum = num2_DecimalPart.length;
 		if(num1_DecimalPartNum >= num2_DecimalPartNum){
@@ -64,6 +72,6 @@ class DoOperation{
 	int[] getResult_DecimalPart(){
 		return result_DecimalPart;
 	}
-
+    */
 
 }

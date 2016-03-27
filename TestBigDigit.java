@@ -6,16 +6,22 @@ public class TestBigDigit {
 		/* Prompt user to How many digital operations?(at least two) */
 		Scanner in = new Scanner(System.in);
 		int numOfOperation = 0;
-		do{
-			System.out.print("How many digital operations?(at least two) ");
-			try{ 
-				numOfOperation = in.nextInt();
+		System.out.print("How many digital operations?(at least two) ");
+		try{ 
+			numOfOperation = in.nextInt();
+			if(numOfOperation <= 1 ){
+				System.out.println("Please enter the correct number(at least two)!");
+				System.exit(1);	
 			}
-			catch (NumberFormatException e){ 
-				System.out.println("Please input a interger!");
-			}
-		}while (numOfOperation < 2);	// if it is smaller than two, propt user to enter again
-
+		}
+		catch (Exception ex){ 
+			System.out.println("Please enter a interger!");
+			System.exit(1);
+		}
+			
+		
+        
+		//ArrayList<String> inputStr = new ArrayList<>();
 		String[] inputStr = new String[numOfOperation];		// A input string
 		ProcessInputNumber[] num = new ProcessInputNumber[numOfOperation];	// A object array for class processInputNumber
 		
@@ -35,17 +41,20 @@ public class TestBigDigit {
 			}
 		}
 		
-		//for(int j = 0 ; j < numOfOperation ; j++){
-
+		//System.out.print(num[0].getIntSize());
+		//for(int j = 0 ; j < num[0].getIntSize() ; j++){
+		//	System.out.print("num[0].getIntPartValue(j)" + num[0].getIntPartValue(j));
+		//}
+     /*
 		DoOperation operation1 = new DoOperation(num[0].intPart,num[0].decimalPart,num[1].intPart,num[1].decimalPart);
 
 
 			operation1.doAddition();
 			
-			//System.out.println(operation1.result_IntPartNum());
+			
 			for(int j = 0 ; j < operation1.getResult_IntPartNum() ; j++){
 				System.out.println(operation1.result_IntPart[j]);
 			}
-		//}
+	 */	
 	}
 }
