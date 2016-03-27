@@ -26,17 +26,15 @@ class DoOperation{
 		num1_DecPart = newNum1_DecPart;
 		num2_IntPart = newNum2_IntPart;
 		num2_DecPart = newNum2_DecPart;
-		
-		// If num1's interger part is not equal to num2's
+		// If num1's decimal part is not equal to num2's
 		while(num1_IntPart.size() != num2_IntPart.size()){
-			if(num1_IntPart.size() > num2_IntPart.size()){	// num1's interger part is bigger
-				num2_IntPart.add(0);	// Fill zero to the head
+			if(num1_IntPart.size() > num2_IntPart.size()){
+				num2_IntPart.add(0);	// Fill zero to the tail
 			}
 			else{
-				num1_IntPart.add(0);	// Fill zero to the head
+				num1_IntPart.add(0);	// Fill zero to the tail
 			}
-		}
-		
+		}		
 		// If num1's decimal part is not equal to num2's
 		while(num1_DecPart.size() != num2_DecPart.size()){
 			if(num1_DecPart.size() > num2_DecPart.size()){
@@ -63,6 +61,7 @@ class DoOperation{
 				carryForDec = 1;	// set the carry
 				if(i == 0){	// If it is the first of the decimal (It has carry for decimal part too)
 					carryFromDecToInt = 1;	// set the carry to interger part
+					carryForDec = 0;	// clear the carry
 				}
 			}
 			else{	// If temp is not bigger then nine
@@ -70,7 +69,7 @@ class DoOperation{
 				carryForDec = 0;	// clear the carry
 			}
 		}
-		for(int j = 0 ; j < result_IntPartNum ; j++){	// Interger part addition, form the head to the tail
+		for(int j = 0 ; j < result_IntPartNum-1 ; j++){	// Interger part addition, form the head to the tail
 			temp = num1_IntPart.get(j) + num2_IntPart.get(j) + carryFromDecToInt + carryForInt;
 				if( temp > 9 ){
 					result_IntPart.add( temp - 10 );
