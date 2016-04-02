@@ -47,13 +47,14 @@ class DoOperation{
 		result_IntPartNum = num1_IntPart.size();	// Get the size of interger part
 		result_DecPartNum = num1_DecPart.size();	// Get the size of decimal part
 	}
-	
+
 	/* A method to do addition */
 	void doAddition(){
 		int carryForInt = 0;	// A variable for storing the carry of interger part
 		int carryForDec = 0;	// A variable for storing the carry of decimal part
 		int carryFromDecToInt = 0;	// A variable for storing the carry from decimal part to interger part
 		int temp = 0;	// A temp variable
+		
 		for(int i = result_DecPartNum-1; i >= 0 ; i--){	// Decimal part addition, form the tail to the head (reverse)
 			temp = num1_DecPart.get(i) + num2_DecPart.get(i) + carryForDec;	// num1 plus num2 plus the carry for decimal part
 			if( temp > 9 ){	// If temp is bigger then nine
@@ -69,20 +70,20 @@ class DoOperation{
 				carryForDec = 0;	// clear the carry
 			}
 		}
-		for(int j = 0 ; j < result_IntPartNum-1 ; j++){	// Interger part addition, form the head to the tail
+
+		for(int j = 0 ; j < result_IntPartNum ; j++){	// Interger part addition, form the head to the tail
 			temp = num1_IntPart.get(j) + num2_IntPart.get(j) + carryFromDecToInt + carryForInt;
-				if( temp > 9 ){
-					result_IntPart.add( temp - 10 );
-					carryForInt = 1;	// set the carry
-					carryFromDecToInt = 0;	// clear the carry
-				}
-				else{
-					result_IntPart.add( temp );
-					carryForInt = 0;	// clear the carry
-					carryFromDecToInt = 0;	// clear the carry
-				}
+			carryFromDecToInt = 0;	// clear the carry
+			if( temp > 9 ){
+				result_IntPart.add( temp - 10 );
+				carryForInt = 1;	// set the carry
+			}
+			else{
+				result_IntPart.add( temp );
+				carryForInt = 0;	// clear the carry
+			}
 		}
-		if(carryForInt == 1){	// If it has a carry
+		if( carryForInt == 1){	// If it has a carry
 			result_IntPart.add(1);	// new a digit, and filled with value (one)
 			result_IntPartNum++;	// Interger part number plus one
 		}
