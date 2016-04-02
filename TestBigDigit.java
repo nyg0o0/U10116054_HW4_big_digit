@@ -48,7 +48,6 @@ public class TestBigDigit {
 			if(i == 0){ 
 				operation[i] = new DoOperation(num[i].getIntPart(),num[i].getDecPart(),num[i+1].getIntPart(),num[i+1].getDecPart());
 				operation[i].doAddition();	// Addition by the method of the class DoOperation
-				System.out.println();
 			}
 			else{
 				operation[i] = new DoOperation(num[i+1].getIntPart(),num[i+1].getDecPart(),Res_IntPart, Res_DecPart);
@@ -60,6 +59,7 @@ public class TestBigDigit {
 
 		}
 		int i = numOfOperation-2;
+		System.out.println("--------------------------------------------");
 		System.out.print("The answer of these " + numOfOperation + " big numbers: ");
 		for(int k = (operation[i].getResult_IntPartNum()-1) ; k >=0 ; k-- ){
 			System.out.print((operation[i].getResult_IntPart()).get(k));	// Get the answer of IntPart from the DoOperation class
@@ -71,6 +71,6 @@ public class TestBigDigit {
 		for(int k = 0 ; k < operation[i].getResult_DecPartNum()  ; k++ ){
 			System.out.print((operation[i].getResult_DecPart()).get(k));	// Get the answer of DecPart from the DoOperation class
 		}
-		
+		System.out.println();
 	}
 }
