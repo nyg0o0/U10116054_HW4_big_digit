@@ -1,3 +1,15 @@
+/* 
+********************** Big Digit java Assignment ********************
+*	Strudent ID: U10116054											*
+*	Strudent Name: Yu-Hsin Chen										*
+*	Assign Date: 4/2												*
+*	Content:This is a program for big digit to do repeat addition.	*
+*********************************************************************
+*		TestBigDigit.java : Test class								*
+*	--> DoOperation.java : Do addition								*
+*		ProcessInputNumber.java : store the number from the string	*
+*********************************************************************
+*/
 import java.util.*;
 class DoOperation{
 	// num1's two parts with two arraylists
@@ -88,7 +100,32 @@ class DoOperation{
 			result_IntPartNum++;	// Interger part number plus one
 		}
 	}
+	
+	/* A method to do subtraction */
+	void doSubtraction(){
+		int carryForInt = 0;	// A variable for storing the carry of interger part
+		int carryForDec = 0;	// A variable for storing the carry of decimal part
+		int carryFromDecToInt = 0;	// A variable for storing the carry from decimal part to interger part
+		int temp = 0;	// A temp variable
+		
+		for(int i = result_DecPartNum-1; i >= 0 ; i--){	// Decimal part addition, form the tail to the head (reverse)
+			temp = num1_DecPart.get(i) - num2_DecPart.get(i) + carryForDec;	// num1 plus num2 plus the carry for decimal part
+			if( temp > 9 ){	// If temp is bigger then nine
+				result_DecPart.add( temp - 10 );
+				carryForDec = 1;	// set the carry
+				if(i == 0){	// If it is the first of the decimal (It has carry for decimal part too)
+					carryFromDecToInt = 1;	// set the carry to interger part
+					carryForDec = 0;	// clear the carry
+				}
+			}
+			else{	// If temp is not bigger then nine
+				result_DecPart.add( temp );	// just add the two numbers
+				carryForDec = 0;	// clear the carry
+			}
+		}
 
+	}
+	
 	/* A method to return the result arraylist of the interger part */
 	public ArrayList<Integer> getResult_IntPart(){
 		return result_IntPart;

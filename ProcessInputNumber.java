@@ -1,3 +1,16 @@
+/* 
+********************** Big Digit java Assignment ********************
+*	Strudent ID: U10116054											*
+*	Strudent Name: Yu-Hsin Chen										*
+*	Assign Date: 4/2												*
+*	Content:This is a program for big digit to do repeat addition.	*
+*********************************************************************
+*		TestBigDigit.java : Test class								*
+*		DoOperation.java : Do addition								*
+*	--> ProcessInputNumber.java : store the number from the string	*
+*********************************************************************
+*/
+
 import java.util.*;
 
 class ProcessInputNumber{

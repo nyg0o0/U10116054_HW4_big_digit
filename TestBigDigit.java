@@ -1,3 +1,16 @@
+/* 
+********************** Big Digit java Assignment ********************
+*	Strudent ID: U10116054											*
+*	Strudent Name: Yu-Hsin Chen										*
+*	Assign Date: 4/2												*
+*	Content:This is a program for big digit to do repeat addition.	*
+*********************************************************************
+*	--> TestBigDigit.java : Test class								*
+*		DoOperation.java : Do addition								*
+*		ProcessInputNumber.java : store the number from the string	*
+*********************************************************************
+*/
+
 import java.util.*;
 
 public class TestBigDigit {
@@ -60,7 +73,7 @@ public class TestBigDigit {
 		}
 		int i = numOfOperation-2;
 		System.out.println("--------------------------------------------");
-		System.out.print("The answer of these " + numOfOperation + " big numbers: ");
+		System.out.print("Addition answer of these " + numOfOperation + " big numbers: ");
 		for(int k = (operation[i].getResult_IntPartNum()-1) ; k >=0 ; k-- ){
 			System.out.print((operation[i].getResult_IntPart()).get(k));	// Get the answer of IntPart from the DoOperation class
 		}
